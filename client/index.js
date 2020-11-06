@@ -14,7 +14,7 @@ function getData(url) {
 // My function for creating a new PUT request that includes the needed header for express.json() middleware, and stringifys the body so it reads it properly
 function putData(url, data) {
 	const options = {
-		method: 'PUT', 
+		method: 'PUT',
 		headers: new Headers({
 			'Content-Type': 'application/json'
 		})
@@ -32,9 +32,9 @@ function putData(url, data) {
 }
 
 function updateName() {
-	putData('http://localhost:8675/api/updateName', { id: 1, name: 'brandon' }) // url and body of the PUT request
+	getData('http://localhost:8675/demoForCameron') // url and body of the PUT request
 		.then(res => res.json()) // not using axios so i have to .json() the response/ axios does this for you
-		.then(response => console.log(response)) // what i wanna do with the response. for now, just console.log it. 
+		.then(response => console.log(response)) // what i wanna do with the response. for now, just console.log it.
 		.catch(err => console.log(err)); // catches error in case something screws up
 }
 
@@ -54,5 +54,5 @@ function getCharacters() {
 }
 
 meowButton.addEventListener('click', () => {
-	updateName();
+	getCharacters();
 });
